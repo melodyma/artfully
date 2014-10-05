@@ -1,7 +1,11 @@
 class ArtifactsController < ApplicationController
 
   def index
-    @artifacts = Artifact.all
+    if params[:query] || params[:city] || params[:country]
+      @artifacts = Artifact.search(params[:query], params[:city], params[:country]).all
+    else
+      @artifacts = Artifact.all
+    end
   end
 
   def show
