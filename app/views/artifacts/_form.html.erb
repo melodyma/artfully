@@ -1,0 +1,38 @@
+<%= form_for @artifact do |f| %>
+
+  <% if @artifact.errors.any? %>
+    <div>
+      <%= pluralize(@artifact.errors.count, "error") %> prevented this artwork from being submitted:
+      <ul>
+        <% @artifact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label "title" %>
+    <%= f.text_field "title" %>
+  </div>
+  <div>
+    <%= f.label "country" %>
+    <%= f.text_field "country" %>
+  </div>
+  <div>
+    <%= f.label "city" %>
+    <%= f.text_field "city" %>
+  </div>
+  <div>
+    <%= f.label "artist" %>
+    <%= f.text_field "artist" %>
+  </div>
+  <div>
+    <%= f.label "description" %>
+    <%= f.text_area "description" %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+
+<% end %>
