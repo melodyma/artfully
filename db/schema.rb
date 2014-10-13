@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005012720) do
+ActiveRecord::Schema.define(version: 20141005023731) do
 
   create_table "artifacts", force: true do |t|
     t.string   "title"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20141005012720) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
+    t.string   "image"
+    t.string   "remote_image_url"
   end
 
   create_table "users", force: true do |t|

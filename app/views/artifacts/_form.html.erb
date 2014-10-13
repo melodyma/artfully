@@ -1,38 +1,43 @@
 <%= form_for @artifact do |f| %>
 
+<div class="submit-art">
   <% if @artifact.errors.any? %>
-    <div>
       <%= pluralize(@artifact.errors.count, "error") %> prevented this artwork from being submitted:
       <ul>
         <% @artifact.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
-    </div>
   <% end %>
 
-  <div>
+  <div class="form-item">
     <%= f.label "title" %>
     <%= f.text_field "title" %>
   </div>
   <div>
-    <%= f.label "country" %>
-    <%= f.text_field "country" %>
+    <p class="non-animated-label">Country</p>
+    <%= f.country_select :country, priority_countries: ["CA", "US"] %>
+    <%= puts params %>
   </div>
-  <div>
+  <div class="form-item">
     <%= f.label "city" %>
     <%= f.text_field "city" %>
   </div>
-  <div>
+  <div class="form-item">
     <%= f.label "artist" %>
     <%= f.text_field "artist" %>
   </div>
   <div>
-    <%= f.label "description" %>
-    <%= f.text_area "description" %>
+    <p class="non-animated-label">Upload Image</p>
+    <p class="image-uploader"><%= f.file_field :image %></p>
+  </div>
+  <div class="form-item">
+    <%= f.label :remote_image_url, "Image Link" %>
+    <%= f.text_field :remote_image_url %>
   </div>
   <div>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "btn" %>
   </div>
+<div>
 
-<% end %>
+<% end %>    

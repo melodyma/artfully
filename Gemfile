@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -31,12 +31,27 @@ gem 'pry',      group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+# For selecting countries and cities
+gem 'cities', '~> 0.3.1'
+gem 'countries'
+gem 'country_select', github: 'stefanpenner/country_select'
+
 # Use unicorn as the app server
 # gem 'unicorn'
+
+# For uploading images
+gem 'rmagick'
+gem 'carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'masonry-rails'
+
+gem 'instagram'
+gem 'omniauth-instagram'
+gem 'omniauth'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 

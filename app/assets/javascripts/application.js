@@ -11,6 +11,69 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require masonry/jquery.masonry
+//= require masonry/jquery.event-drag
+//= require masonry/jquery.imagesloaded.min
+//= require masonry/jquery.infinitescroll.min
+//= require masonry/modernizr-transitions
+//= require masonry/box-maker
+//= require masonry/jquery.loremimages.min
+//= require bootstrap/modal
 //= require_tree .
+
+
+$(function() {
+
+  // Freewall Layout //
+  var wall = new freewall("#freewall");
+  wall.reset({
+  selector: '.brick',
+  animate: true,
+  cellW: 200,
+  cellH: 'auto',
+  onResize: function() {
+      wall.fitWidth();
+    }
+  });
+  
+  wall.container.find('.brick img').load(function() {
+    wall.fitWidth();
+  });
+ 
+  // Form Labels Animation //
+  var i = 0, inputs = document.querySelectorAll('input'), l = inputs.length;
+
+  for(; i < l; i++) {
+    inputs[i].addEventListener('focus', function(){
+      this.parentNode.classList.add('focus');
+    }, false);
+    inputs[i].addEventListener('blur', function(){
+      this.parentNode.classList.remove('focus');
+      if (this.value.length > 0) {
+        this.parentNode.classList.add('data');
+      }
+      else {
+        this.parentNode.classList.remove('data');
+      }
+    }, false);
+  }
+});
+
+// Header and Search Bar Animation //
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 1){  
+    $('nav').addClass("sticky");
+    $('.search-bar').slideUp();
+    $('.search-icon').css({'cursor': 'pointer'});
+    $('.search-icon').click(function() {
+      $('.search-bar').slideDown();
+    }); 
+  }
+  else {
+    $('nav').removeClass("sticky");
+    $('.search-bar').slideDown();
+  }
+});
+
+
+

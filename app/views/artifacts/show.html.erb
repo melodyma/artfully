@@ -1,6 +1,6 @@
 <%= link_to "Back to all artwork", artifacts_path %>
 
-<%= @artifact.title %>
+<%= @artifact.title %> (<%= link_to "edit", edit_artifact_path(@artifact) %>)
 <%= @artifact.city %>, <%= @artifact.country %>
 <%= @artifact.artist %>
 <%= @artifact.description %>

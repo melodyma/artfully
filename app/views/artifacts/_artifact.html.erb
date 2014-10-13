@@ -1,0 +1,9 @@
+<div class="brick">
+  
+  <%= image_tag artifact.image_url(:thumb), :class => "img" %>
+  
+  <p class="img-title"><%= link_to artifact.title, artifacts_path(artifact), :class => "img-title" %></p>
+  
+  <p class="img-location"><%= artifact.city + ", " + artifact.country%></p>
+  
+</div> 

@@ -1,0 +1,347 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ *= require 'masonry/basic'
+ *= require 'masonry/centered'
+ *= require 'masonry/fluid'
+ *= require 'masonry/gutters'
+ *= require 'masonry/infinitescroll'
+ *= require 'masonry/right-to-left'
+ *= require 'masonry/transitions'
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$primary-font-stack: "Droid Serif", serif;
+$secondary-font-stack: "Raleway", sans-serif; 
+
+$primary-blue-color: #38cfd6;
+$form-placeholder-color: #999;
+
+@mixin input-text {
+  font-weight: 300;
+  font-size: 15px;
+  color: #696464;
+}
+
+body {
+  font-family: $secondary-font-stack;
+}
+
+/* Navigation */
+.top-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 300;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  background-color: $primary-blue-color;
+  border-color: $primary-blue-color;
+  box-shadow: 1px 1px 5px #888888;
+  padding: 25px 20px 25px 20px;
+  font-family: $primary-font-stack;
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  height: 90px;
+  width: 100%;
+  z-index: 200;
+  transition: all 0.5s ease;
+}
+
+.nav.sticky {
+  font-size: 24px;
+  height: 55px;
+  background: #fff;
+  box-shadow: 1px 1px 5px #888888;
+  color: $primary-blue-color;
+  text-align: left;
+  padding: 10px 20px 20px 20px;
+  opacity: 0.90;
+}
+
+#logo {
+  color: inherit;
+  text-decoration: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.search-bar {
+  border-color: 1px solid #BDBDBD;
+  text-align: center;
+  position: relative;
+  padding: 20px 0px 10px 0px;
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid #d9dbdc;
+  background-color: #fff;
+  z-index: 100;
+}
+
+#query {
+  @include input-text;
+  border: 0;
+  margin: 0px 15px 0px 15px;
+  width: 250px;
+}
+
+#query:focus {
+  outline: none;
+}
+
+.query-select-box {
+  @include input-text;
+  border: none;
+  background: url(https://divoqsdr0fzyc.cloudfront.net/assets/drop.png) no-repeat right #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0px 25px 0px 15px;
+  padding: 0px 10px 0px 10px;
+  width: 250px;
+  display: inline-block;
+}
+
+.query-select-box:focus {
+  outline: none;
+}
+
+.search-btn {
+  border: none;
+  background-color: #fff;
+  border-radius: 3px;
+  color: #38cfd6;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.search-btn:hover {
+  color: #2E999E;
+}
+
+.search-icon {
+  display: hidden;
+  font-size: 15px;
+  text-align: right;
+  float: right;
+  clear: left;
+  padding-top: 7px;
+}
+
+/* Hero */
+.hero-img {
+  height: 900px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 100;
+  background: url("http://www.metropolisdesign.it/wp-content/uploads/2014/04/clouds.jpg")top center no-repeat;
+  background-size: cover;
+}
+
+.hero-txt {
+  position: relative;
+  color: #fff;
+  font-size: 3.5vh;
+  font-family: 'Droid Serif', serif;
+  text-shadow: 0 0px 7px rgba(0, 0, 0, 1);
+}
+
+.hero-box {
+  position: relative;
+  top: 375px;
+  left: 60%;
+  height: 250px;
+  width: 450px;
+}
+
+/* Button */
+.btn {
+  position: relative;
+  color: #fff;
+  background-color: #38cfd6;
+  margin-top: 15px;
+  padding: 11px 23px 11px 23px;
+  font-weight: 500;
+  font-size: 16px;
+  border-bottom: 2px solid #2E999E;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 3px !important;
+  transition: 0.2s all ease;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #494F5A;
+  border-bottom: 2px solid #32363e;
+  border-radius: 3px !important;
+}
+
+.btn:focus {
+  color: #fff;
+  outline: none;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 3px !important;
+}
+
+.modal-header {
+  background-color: #38cfd6;
+  color: #fff;
+  font-family: $primary-font-stack;
+  border-bottom: none;
+  padding: 25px 20px 20px 20px;
+  font-size: 20px;
+}
+
+.modal-title {
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+.modal-body {
+  padding: 10px 0px 30px 0px;
+}
+
+.submit-art {
+  padding: 10px 20px 0px 20px;
+}
+
+/* Free Wall */
+.free-wall {
+  margin: 15px;
+}
+
+.brick {
+  width: 221.2px;
+  padding: 5px 5px 5px 5px;
+}
+      
+.info {
+  padding: 15px;
+  color: #333;
+}
+
+.brick img {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.img {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.img-title {
+  padding-top: 10px;
+  font-family: 'Droid Serif', serif;
+  font-size: 15px;
+  color: #38cfd6;
+}
+
+.img-location {
+  margin-top: -7px;
+  font-size: 11px;
+  color: #696464;
+  font-weight: 200;
+}
+
+/* Form Labels */
+.non-animated-label {
+  margin-left: 11px;
+  line-height: 20px;
+  font-size: 11px;
+  font-weight: 400;
+  color: $primary-blue-color;
+}
+
+#artifact_country {
+  @include input-text;
+  margin: -10px 4px 12px;
+  background: url(https://divoqsdr0fzyc.cloudfront.net/assets/drop.png) no-repeat right #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 0px 5px 5px;
+  height: 40px;
+  width: 250px;
+  border-radius: 0px;
+  border-color: $primary-blue-color;
+}
+
+.image-uploader {
+  margin: 0px 0px 15px 10px;
+  line-height: 20px;
+  font-size: 11px;
+  font-weight: 400;
+  color: $form-placeholder-color;
+}
+
+.form-item {
+  position: relative;
+  margin-bottom: 17px;
+
+  input:focus {
+    outline: none;
+  }
+
+  label, input {
+    display: inline-block;
+    transition: all 175ms;
+  }
+
+  input {
+    margin-top: 10px;
+    padding: 7px 13px;
+    border: none;
+    border-bottom: 1.5px solid #38cfd6;
+    line-height: 20px;
+    width: 100%;
+    @include input-text;
+  }
+
+  label {
+    position:absolute;
+    top: 12px;
+    left: 11px;
+    padding: 0 2px;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    color: $form-placeholder-color;
+    pointer-events:none;
+    transform-origin: left center;
+    transform:translateY(0) scale(1);
+  }
+  
+  &.data label,
+  &.focus label {
+    transform: translateY(-20px) scale(0.75);
+    color: $primary-blue-color;
+  }
+  
+  &.data label {
+    color: $primary-blue-color;
+  }
+}

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
  
- resources :artifacts
- resources :users, only: [:new, :create, :destroy]
+  get 'oauth/instagram/connect', to: 'sessions#new'
+  get 'oauth/instagram/callback', to: 'sessions#create'
+
+  resources :artifacts
+  resources :users, only: [:new, :create, :destroy]
+
+  root :to => 'artifacts#index'
 
 end

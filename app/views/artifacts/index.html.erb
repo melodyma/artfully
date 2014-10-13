@@ -1,23 +1,47 @@
-<h1>artfully</h1>
+<div class="top-bar">
+  <nav class="nav">
+    <a href="/" id="logo">artfully</a>
+    <div class="search-icon">
+      <span class="glyphicon glyphicon-search" style="color: #38cfd6;"></span>
+    <div>
+  </nav>
 
-
-<%= form_tag artifacts_path, method: :get do %>
-  <div>
-    <%= text_field_tag :query, params[:query] %>
-  <div>
-  <div>
-    <%= select_tag :city, options_for_select([1,1], [2,2]) %>
+  <div class="search-bar">
+  <%= form_tag artifacts_path(anchor: "photo_wall"), method: :get do %>
+    <span class="glyphicon glyphicon-search" style="color: #38cfd6;"></span>
+    <%= text_field_tag :query, params[:query], placeholder: "search by artist or title"%>
+    <%= select_tag :city, options_from_collection_for_select(Artifact.unique_by_city, :city, 'city'), prompt: "- select a city -", class: "query-select-box" %>
+    <%= select_tag :country, options_from_collection_for_select(Artifact.unique_by_country, :country, 'country'), prompt: "- select a country -", class: "query-select-box" %>
+    <%= submit_tag "SEARCH", :name => nil, class: "search-btn" %>
+  <% end %>
   </div>
-  <div>
-    <%= select_tag :country, options_for_select([1,1], [2,2]) %>
+</div>
+
+
+<div class="hero-img">
+  <div class="hero-box">
+    <div class="hero-txt">
+      artfully is a collection of public art around the globe curated by art lovers like you. Whether it's a sidewalk mural or commissioned sculpture, join the movement to index the world's art by sharing your artful encounters on artfully today.
+    </div>
+    <%= link_to "Submit Art", "#", {:class => "btn", 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
   </div>
-  <div>
-    <%= submit_tag "SEARCH", :name => nil %>
+</div>
+
+
+<a name="photo_wall"><div id="freewall" class="free-wall">
+  <%= render @artifacts %>
+</div></a>
+
+<div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Submit New Artwork</h4>
+      </div>
+      <div class="modal-body">
+      <%= render 'form' %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<hr>
-
-<% render @artifacts %>
-
-<%= link_to "Submit artwork!", new_artifact_path %>
+</div>
