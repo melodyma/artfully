@@ -36,9 +36,6 @@ gem 'cities', '~> 0.3.1'
 gem 'countries'
 gem 'country_select', github: 'stefanpenner/country_select'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
 # For uploading images
 gem 'rmagick'
 gem 'carrierwave'
@@ -55,3 +52,7 @@ gem 'omniauth'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
