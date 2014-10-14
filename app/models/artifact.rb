@@ -1,3 +1,5 @@
+require "pry"
+
 class Artifact < ActiveRecord::Base
 
   validates :title, presence: true
@@ -8,14 +10,13 @@ class Artifact < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   scope :by_query, ->(query) { where( "title LIKE :q OR artist LIKE :q", q: "%#{query}" ) }
-  scope :by_city, ->(city) { where( "city = ?", city ) }
-  scope :by_country, ->(country) { where( "country = ?", country) }
+  scope :by_city_or_country, ->(city, country) { where( "city = ? OR country = ?", city, country ) }
 
   def self.search(query, city, country)
     full_query = Artifact
     full_query = full_query.by_query(query) if query.present?
-    full_query = full_query.by_city(city) if city.present?
-    full_query = full_query.by_country(country) if country.present?
+    full_query = full_query.by_city_or_country(city, country) if city.present? || country.present?
+    return full_query
   end
 
   def self.unique_by_city
