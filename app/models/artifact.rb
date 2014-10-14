@@ -1,5 +1,3 @@
-require "pry"
-
 class Artifact < ActiveRecord::Base
 
   validates :title, presence: true
