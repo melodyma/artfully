@@ -1,9 +1,9 @@
 <div class="brick">
   
-  <%= image_tag artifact.image_url, :class => "img" %>
+  <%= image_tag @artifact.image_url.to_s, :class => "img" %>
   
-  <p class="img-title"><%= artifact.title %></p>
+  <p class="img-title"><%= @artifact.title %></p>
   
-  <p class="img-location"><%= artifact.city + ", " + artifact.country%></p>
+  <p class="img-location"><%= @artifact.city + ", " + @artifact.country%></p>
   
 </div> 
