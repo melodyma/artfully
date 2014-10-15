@@ -5,7 +5,7 @@ class Artifact < ActiveRecord::Base
   validates :city, presence: true
   validates :image, presence: true
 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   scope :by_query, ->(query) { where( "title LIKE :q OR artist LIKE :q", q: "%#{query}" ) }
   scope :by_city_or_country, ->(city, country) { where( "city = ? OR country = ?", city, country ) }
@@ -23,6 +23,10 @@ class Artifact < ActiveRecord::Base
 
   def self.unique_by_country
     self.select(:country).distinct
+  end
+
+  def image_url
+    remote_image_url
   end
 
 end
