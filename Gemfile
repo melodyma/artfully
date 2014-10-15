@@ -47,6 +47,8 @@ gem 'masonry-rails'
 gem 'instagram'
 gem 'omniauth-instagram'
 gem 'omniauth'
+
+gem 'pg'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
